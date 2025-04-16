@@ -1,3 +1,9 @@
 <template>
-	<h2>Hello</h2>
+	<q-page>
+		<BlocksMainBlock />
+		<BlocksSecondBlock />
+		<BlocksOffersBlock />
+		<BlocksPaintingBlock />
+		<BlocksAboutUsBlock />
+	</q-page>
 </template>

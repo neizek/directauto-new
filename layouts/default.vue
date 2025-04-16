@@ -5,12 +5,10 @@ import HeaderBar from './HeaderBar.vue';
 
 <template>
 	<div>
-		<q-layout view="hHh lpR fff" class="bg-grey-2">
+		<q-layout view="hHh lpR fff" class="bg-black">
 			<HeaderBar />
 			<q-page-container class="wrapper w1200">
-				<q-page>
-					<slot />
-				</q-page>
+				<slot />
 			</q-page-container>
 			<FooterBar />
 		</q-layout>

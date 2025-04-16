@@ -1,7 +1,7 @@
 export default defineAppConfig({
-    nuxtQuasar: {
-        brand: {
-            primary: '#3993DD',
-        },
-    },
+	nuxtQuasar: {
+		brand: {
+			primary: '#b2290d',
+		},
+	},
 });

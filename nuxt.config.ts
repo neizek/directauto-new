@@ -11,6 +11,9 @@ export default defineNuxtConfig({
 		defaultLocale: 'lv',
 	},
 	quasar: {
+		config: {
+			dark: true,
+		},
 		components: {
 			defaults: {
 				QBtn: {
@@ -19,6 +22,13 @@ export default defineNuxtConfig({
 				},
 				QBtnToggle: {
 					unelevated: true,
+				},
+				QIntersection: {
+					threshold: 0.5,
+					margin: '30%',
+				},
+				QCard: {
+					flat: true,
 				},
 			},
 		},
