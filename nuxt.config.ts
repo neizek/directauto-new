@@ -10,10 +10,17 @@ export default defineNuxtConfig({
 		],
 		defaultLocale: 'lv',
 	},
+	css: ['~/assets/styles/mapbox-gl.css'],
+	runtimeConfig: {
+		public: {
+			mapBoxToken: process.env.MAPBOX_ACCESS_TOKEN,
+		},
+	},
 	quasar: {
 		config: {
 			dark: true,
 		},
+		cssAddon: true,
 		components: {
 			defaults: {
 				QBtn: {

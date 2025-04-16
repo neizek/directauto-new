@@ -3,7 +3,7 @@ const slide = ref(1);
 </script>
 
 <template>
-	<div class="text-white q-pa-xl q-pa-md-xs row q-col-gutter-xl">
+	<div class="text-white q-pa-md q-pa-sm-xl row q-col-gutter-xl">
 		<div class="column col-lg-5 col-12">
 			<q-intersection transition="slide-right" tag="h4" class="text-center">
 				Автопокраска

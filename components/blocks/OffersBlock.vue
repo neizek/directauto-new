@@ -33,7 +33,7 @@ const offers = [
 </script>
 
 <template>
-	<div class="column text-white q-pa-xl row q-col-gutter-xl">
+	<div class="column text-white q-pa-md q-pa-sm-xl row q-col-gutter-xl">
 		<q-intersection class="text-center" tag="h2" transition="slide-right">
 			Услуги
 		</q-intersection>

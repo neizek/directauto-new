@@ -1,6 +1,6 @@
 <template>
-	<div class="text-white q-pa-xl q-pa-md-xs row q-col-gutter-xl">
-		<div class="column col-6">
+	<div class="text-white q-pa-md q-pa-sm-xl row q-col-gutter-xl">
+		<div class="column col-md-6 col-12">
 			<q-intersection transition="slide-right" tag="h4" class="text-center">
 				О нас
 			</q-intersection>
@@ -17,7 +17,7 @@
 				запчасти соответствующие Вашим финансовым возможностям и желаниям.
 			</p>
 		</div>
-		<div class="column col-6">
+		<div class="column col-md-6 col-12">
 			<q-intersection transition="slide-right" tag="h4" class="text-center">
 				Автосервис
 			</q-intersection>
