@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-defineProps<{ images: string[] }>();
-const activeImg = ref(2);
+	defineProps<{ images: string[] }>();
+	const activeImg = ref(2);
 </script>
 
 <template>
@@ -8,6 +8,7 @@ const activeImg = ref(2);
 		<div
 			v-for="(image, index) in images"
 			:key="image"
+			v-gsap.whenVisible.from="{ scale: 0.3, opacity: 0 }"
 			class="ImageContainer"
 			:class="{ active: index === activeImg }"
 			@mouseover="activeImg = index">
@@ -17,29 +18,29 @@ const activeImg = ref(2);
 </template>
 
 <style lang="scss">
-.ImageBeauty {
-	display: flex;
-	flex-direction: row;
-	gap: 16px;
+	.ImageBeauty {
+		display: flex;
+		flex-direction: row;
+		gap: 16px;
 
-	.ImageContainer {
-		height: 400px;
-		width: 10%;
-		border-radius: 16px;
-		overflow: hidden;
-		transition: width 0.3s;
+		.ImageContainer {
+			height: 400px;
+			width: 10%;
+			border-radius: 16px;
+			overflow: hidden;
+			transition: width 0.3s;
 
-		&.active {
-			width: 60%;
-		}
+			&.active {
+				width: 60%;
+			}
 
-		&:first-child {
-			border-radius: 0 16px 16px 0;
-		}
+			&:first-child {
+				border-radius: 0 16px 16px 0;
+			}
 
-		&:last-child {
-			border-radius: 16px 0 0 16px;
+			&:last-child {
+				border-radius: 16px 0 0 16px;
+			}
 		}
 	}
-}
 </style>

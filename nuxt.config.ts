@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
 	compatibilityDate: '2024-11-01',
 	devtools: { enabled: true },
-	modules: ['@nuxt/eslint', 'nuxt-quasar-ui', '@nuxtjs/i18n'],
+	modules: ['@nuxt/eslint', 'nuxt-quasar-ui', '@nuxtjs/i18n', 'v-gsap-nuxt', 'nuxt-anchorscroll'],
 	i18n: {
 		locales: [
 			{ code: 'lv', language: 'lv-LV', name: 'Latviešu', file: 'lv.json' },

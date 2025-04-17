@@ -7,5 +7,6 @@
 	"printWidth": 100,
 	"endOfLine": "auto",
 	"bracketSameLine": true,
-	"htmlWhitespaceSensitivity": "ignore"
+	"htmlWhitespaceSensitivity": "ignore",
+	"vueIndentScriptAndStyle": true
 }
