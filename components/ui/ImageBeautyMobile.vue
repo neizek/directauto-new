@@ -1,7 +1,12 @@
 <template>
 	<div v-gsap.whenVisible.from="{ scale: 0.3, opacity: 0 }" class="image-scroller hide-scrollbar">
 		<div v-for="(image, index) in images" :key="index" class="slide q-pa-md">
-			<q-img :src="image" alt="Image" class="q-pm-md rounded-borders" />
+			<q-img
+				:src="image"
+				alt="Image"
+				height="100%"
+				width="100%"
+				class="q-pm-md rounded-borders" />
 		</div>
 	</div>
 </template>

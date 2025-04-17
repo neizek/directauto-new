@@ -4,7 +4,7 @@
 
 <template>
 	<div class="row">
-		<div class="q-pa-md q-pa-sm-xl column col-lg-5 col-12">
+		<div class="q-pa-md q-pa-sm-xl column col-md-5 col-12">
 			<h3 v-gsap.whenVisible.from="{ x: '-40%', opacity: 0 }" class="text-center">
 				Автопокраска
 			</h3>
@@ -25,7 +25,7 @@
 				включая перекраску отдельных деталей.
 			</p>
 		</div>
-		<div v-gsap.whenVisible.from="{ opacity: 0 }" class="col-lg-7 col-12">
+		<div v-gsap.whenVisible.from="{ opacity: 0 }" class="col-md-7 col-12">
 			<q-carousel
 				v-model="slide"
 				transition-prev="slide-right"

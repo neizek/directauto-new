@@ -10,7 +10,7 @@ export default defineNuxtConfig({
 		],
 		defaultLocale: 'lv',
 	},
-	css: ['~/assets/styles/mapbox-gl.css'],
+	css: ['~/assets/styles/mapbox-gl.css', '~/assets/styles/main.scss'],
 	runtimeConfig: {
 		public: {
 			mapBoxToken: process.env.MAPBOX_ACCESS_TOKEN,

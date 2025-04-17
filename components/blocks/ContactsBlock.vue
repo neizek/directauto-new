@@ -40,7 +40,10 @@
 				<WidgetsInteractiveMap :car-services-list="carServicesList" />
 			</div>
 			<div class="q-gutter-y-md col-md-4 col-12">
-				<q-card v-for="(carService, index) in carServicesList" :key="carService.id">
+				<q-card
+					v-for="(carService, index) in carServicesList"
+					:key="carService.id"
+					v-gsap.whenVisible.from="{ scale: 0.4, opacity: 0 }">
 					<q-item class="q-pa-md" clickable @click="openDetails(index)">
 						<q-item-section avatar>
 							<q-avatar color="primary" text-color="white" icon="place" />

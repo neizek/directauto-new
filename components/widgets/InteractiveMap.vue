@@ -60,7 +60,7 @@
 		> div {
 			// display: flex;
 			border-radius: 10px;
-			aspect-ratio: 16 / 9;
+			aspect-ratio: 4/3;
 		}
 	}
 </style>

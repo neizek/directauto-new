@@ -15,12 +15,14 @@
 		<div class="absolute-center text-white text-center">
 			<q-intersection transition="scale" tag="div">
 				<q-img
+					v-gsap.parallax.faster
 					:src="LogoSVG"
 					height="250px"
 					:width="q.screen.lt.sm ? `85vw` : '100%'"
 					fit="contain" />
 			</q-intersection>
 			<q-intersection
+				v-gsap.parallax.slower
 				transition="fade"
 				:transition-duration="1000"
 				tag="div"
