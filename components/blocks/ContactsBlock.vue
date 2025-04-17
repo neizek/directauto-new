@@ -1,9 +1,9 @@
 <script setup lang="ts">
-	interface CarService {
+	export interface CarService {
 		id: number;
 		address: string;
 		phone?: string;
-		coordinates: [number, number] | null;
+		coordinates: [number, number];
 	}
 	const carServicesList: CarService[] = [
 		{
@@ -19,10 +19,19 @@
 			coordinates: [24.198310039551963, 56.990224093655414],
 		},
 	];
+	const carServiceDialog = ref({
+		isOpen: false,
+		details: carServicesList[0],
+	});
+
+	const openDetails = (index: number) => {
+		carServiceDialog.value.details = carServicesList[index];
+		carServiceDialog.value.isOpen = true;
+	};
 </script>
 
 <template>
-	<div id="contacts" class="column q-pa-md q-pa-sm-xl row q-col-gutter-xl">
+	<div id="contacts" style="display: block" class="column q-pa-md q-pa-sm-xl q-col-gutter-xl">
 		<h3 v-gsap.whenVisible.from="{ x: '-40%', opacity: 0 }" class="text-center">
 			{{ $t('contacts') }}
 		</h3>
@@ -31,14 +40,13 @@
 				<WidgetsInteractiveMap :car-services-list="carServicesList" />
 			</div>
 			<div class="q-gutter-y-md col-md-4 col-12">
-				<q-card v-for="carService in carServicesList" :key="carService.id">
-					<!-- <q-card-section> -->
-					<q-item class="q-pa-md" clickable>
+				<q-card v-for="(carService, index) in carServicesList" :key="carService.id">
+					<q-item class="q-pa-md" clickable @click="openDetails(index)">
 						<q-item-section avatar>
 							<q-avatar color="primary" text-color="white" icon="place" />
 						</q-item-section>
 						<q-item-section>
-							<q-item-label class="text-h6">
+							<q-item-label>
 								{{ carService.address }}
 							</q-item-label>
 							<q-item-label caption>{{ carService.phone }}</q-item-label>
@@ -47,9 +55,11 @@
 							<q-icon size="32px" text-color="white" name="chevron_right" />
 						</q-item-section>
 					</q-item>
-					<!-- </q-card-section> -->
 				</q-card>
 			</div>
 		</div>
 	</div>
+	<q-dialog v-model="carServiceDialog.isOpen" position="bottom">
+		<WidgetsCarServiceDetails :car-service="carServiceDialog.details" />
+	</q-dialog>
 </template>

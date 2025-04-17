@@ -5,10 +5,11 @@
 
 	const openDrawer: Ref<boolean> = ref(false);
 	const links = computed(() => [
-		{ label: t('services'), to: '/#offers' },
-		{ label: t('contacts'), to: '/#contacts' },
-		{ label: t('about'), to: '/#about' },
+		{ label: t('services'), to: '/#offers', icon: 'build' },
+		{ label: t('contacts'), to: '/#contacts', icon: 'place' },
+		{ label: t('about'), to: '/#about', icon: 'info' },
 	]);
+	const isOpenAppointmentForm = ref(false);
 </script>
 <template>
 	<q-header>
@@ -39,7 +40,12 @@
 						:label="locale.code.toUpperCase()"
 						@click="setLocale(locale.code)" />
 				</q-btn-group>
-				<q-btn class="" color="primary" icon="add" :label="$t('applyForService')" />
+				<q-btn
+					class=""
+					color="primary"
+					icon="add"
+					:label="$t('applyForService')"
+					@click="isOpenAppointmentForm = true" />
 			</div>
 			<q-btn
 				flat
@@ -49,27 +55,59 @@
 				class="q-ml-sm lt-sm"
 				@click="() => (openDrawer = !openDrawer)" />
 			<q-drawer v-model="openDrawer" side="right" overlay class="bg-black text-white">
-				<q-list class="q-pa-md">
+				<q-list class="q-pa-md q-gutter-y-sm">
+					<q-item-label class="text-h6 text-center q-ma-md">
+						{{ $t('menu') }}
+					</q-item-label>
+					<q-separator class="q-my-sm" color="primary" />
+					<q-btn-group flat spread>
+						<q-btn
+							v-for="locale in locales"
+							:key="locale.code"
+							color="transparent"
+							:text-color="locale.code === $i18n.locale ? 'secondary' : 'white'"
+							:label="locale.name"
+							@click="setLocale(locale.code)" />
+					</q-btn-group>
+					<q-separator class="q-my-sm" color="primary" />
 					<q-item
 						v-for="link in links"
 						:key="link.label"
 						clickable
+						class="rounded-borders"
 						:to="$localePath(link.to)">
+						<q-item-section avatar>
+							<q-icon :name="link.icon" color="white" />
+						</q-item-section>
 						<q-item-section class="text-white">{{ link.label }}</q-item-section>
 					</q-item>
-					<q-separator />
 					<q-item
-						v-for="locale in locales"
-						:key="locale.code"
+						class="bg-primary rounded-borders"
 						clickable
-						color="transparent"
-						text-color="white"
-						:label="locale.code.toUpperCase()"
-						@click="setLocale(locale.code)">
-						<q-item-section>{{ locale.code.toUpperCase() }}</q-item-section>
+						@click="
+							() => {
+								isOpenAppointmentForm = true;
+								openDrawer = false;
+							}
+						">
+						<q-item-section avatar>
+							<q-icon name="add" color="white" />
+						</q-item-section>
+						<q-item-section class="text-white">
+							{{ $t('applyForService') }}
+						</q-item-section>
 					</q-item>
+					<!-- <q-btn
+						class="full-width"
+						color="primary"
+						icon="add"
+						:label="$t('applyForService')"
+						@click="isOpenAppointmentForm = true" /> -->
 				</q-list>
 			</q-drawer>
 		</q-toolbar>
+		<q-dialog v-model="isOpenAppointmentForm" position="bottom">
+			<WidgetsAppointmentForm />
+		</q-dialog>
 	</q-header>
 </template>

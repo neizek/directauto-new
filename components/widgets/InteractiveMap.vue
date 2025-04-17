@@ -55,6 +55,7 @@
 <style lang="scss" scoped>
 	.Container {
 		width: 100%;
+		max-height: 600px;
 
 		> div {
 			// display: flex;

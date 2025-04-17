@@ -37,6 +37,10 @@ export default defineNuxtConfig({
 				QCard: {
 					flat: true,
 				},
+				QInput: {
+					outlined: true,
+					dense: true,
+				},
 			},
 		},
 	},
