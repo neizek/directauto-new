@@ -5,12 +5,7 @@
 			:key="index"
 			v-gsap.whenVisible.from="{ opacity: 0, x: 100 }"
 			class="slide q-pa-md">
-			<q-img
-				:src="image"
-				alt="Image"
-				height="100%"
-				width="100%"
-				class="q-pm-md rounded-borders" />
+			<q-img :src="image" alt="Image" height="100%" width="100%" class="rounded-borders" />
 		</div>
 	</div>
 </template>
@@ -31,7 +26,7 @@
 		overflow: hidden;
 		overflow-x: scroll;
 		width: 100%;
-		height: 300px; /* Adjust height as needed */
+		height: 300px;
 		position: relative;
 	}
 
@@ -40,7 +35,7 @@
 		scroll-snap-stop: always;
 		border-radius: 8px;
 		height: 100%;
-		width: 100vw;
+		min-width: 100%;
 		object-fit: cover;
 		aspect-ratio: 16 / 9;
 	}

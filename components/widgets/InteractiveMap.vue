@@ -54,8 +54,10 @@
 <style lang="scss" scoped>
 	.Container {
 		width: 100%;
+		height: 100%;
 
-		> div {
+		.map-container {
+			flex: 1;
 			height: 100%;
 			min-height: 400px;
 			max-height: 600px;

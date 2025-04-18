@@ -1,14 +1,12 @@
 <script setup lang="ts">
 	import Logo from '~/assets/logo.svg';
+	import { links } from '~/lib/links';
+	import { openDrawer } from '~/lib/drawer';
 
-	const { locales, setLocale, t } = useI18n();
+	const { locales, setLocale } = useI18n();
 
-	const openDrawer: Ref<boolean> = ref(false);
-	const links = computed(() => [
-		{ label: t('services'), to: '/#offers', icon: 'build' },
-		{ label: t('contacts'), to: '/#contacts', icon: 'place' },
-		{ label: t('about'), to: '/#about', icon: 'info' },
-	]);
+	// const openDrawer: Ref<boolean> = ref(false);
+
 	const isOpenAppointmentForm = ref(false);
 </script>
 <template>
@@ -23,7 +21,7 @@
 			<div class="row gt-sm q-gutter-x-md absolute-center">
 				<q-btn
 					v-for="link in links"
-					:key="link.label"
+					:key="$t(link.label)"
 					:to="$localePath(link.to)"
 					color="transparent"
 					text-color="grey-5"
