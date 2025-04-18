@@ -1,6 +1,10 @@
 <template>
-	<div v-gsap.whenVisible.from="{ scale: 0.3, opacity: 0 }" class="image-scroller hide-scrollbar">
-		<div v-for="(image, index) in images" :key="index" class="slide q-pa-md">
+	<div class="image-scroller hide-scrollbar">
+		<div
+			v-for="(image, index) in images"
+			:key="index"
+			v-gsap.whenVisible.from="{ opacity: 0, x: 100 }"
+			class="slide q-pa-md">
 			<q-img
 				:src="image"
 				alt="Image"

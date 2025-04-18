@@ -14,11 +14,13 @@
 	import PaintIcon from '~/assets/icons/offers/paint.svg';
 	import SnowflakeIcon from '~/assets/icons/offers/snowflake.svg';
 
-	const offers = [
-		{ label: 'Подготовка к тех. осмотру', icon: CarIcon },
-		{ label: 'Замена масла и фильтров', icon: OilIcon },
-		{ label: 'Установка авто стекол', icon: WindShieldIcon },
-		{ label: 'Диагностика и ремонт ходовой части', icon: CarStandIcon },
+	const { t } = useI18n();
+
+	const offers = computed(() => [
+		{ label: t('offer.beforeInspection'), icon: CarIcon },
+		{ label: t('offer.oilFiltersChange'), icon: OilIcon },
+		{ label: t('offer.windowReplacement'), icon: WindShieldIcon },
+		{ label: t('offer.suspensionRepair'), icon: CarStandIcon },
 		{ label: 'Замена колёс на дисках любого размера;', icon: WheelIcon },
 		{ label: 'Диагностика и ремонт двигателя', icon: EngineIcon },
 		{ label: 'Ремонт легковых авто и микроавтобусов', icon: BreakDownIcon },
@@ -29,11 +31,11 @@
 		{ label: 'Диагностика и ремонт электроприборов (только Tvaika 3)', icon: ElectronicsIcon },
 		{ label: 'Покрасочные работы любой сложности', icon: PaintIcon },
 		{ label: 'Подготовка авто к зимнему/летнему сезону', icon: SnowflakeIcon },
-	];
+	]);
 </script>
 
 <template>
-	<div id="offers" class="column text-white q-pa-md q-pa-sm-xl row q-col-gutter-xl">
+	<section id="offers" class="column text-white q-pa-md q-pa-sm-xl row q-col-gutter-xl">
 		<!-- <q-intersection class="text-center" tag="h2" transition="slide-right">
 			Услуги
 		</q-intersection> -->
@@ -41,18 +43,6 @@
 			{{ $t('services') }}
 		</h3>
 		<div class="row q-col-gutter-md">
-			<!-- <div
-				v-for="offer in offers"
-				:key="offer.label"
-				v-gsap.whenVisible.from="{ scale: 0.4, opacity: 0 }"
-				class="col-6 col-md-2">
-				<q-card class="bg-black">
-					<q-img :src="offer.icon" fit="contain" height="100px" class="q-pa-md" />
-					<q-item class="column">
-						<span class="text-center" style="line-clamp: 2">{{ offer.label }}</span>
-					</q-item>
-				</q-card>
-			</div> -->
 			<div
 				v-for="offer in offers"
 				:key="offer.label"
@@ -65,12 +55,12 @@
 						</q-avatar>
 					</q-item-section>
 					<q-item-section>
-						<q-item-label lines="2" class="text-caption">
+						<q-item-label lines="3" class="text-caption">
 							{{ offer.label }}
 						</q-item-label>
 					</q-item-section>
 				</q-item>
 			</div>
 		</div>
-	</div>
+	</section>
 </template>

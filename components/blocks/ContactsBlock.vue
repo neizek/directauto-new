@@ -1,4 +1,5 @@
 <script setup lang="ts">
+	import MapSVG from '~/assets/icons/illustrations/map.svg';
 	export interface CarService {
 		id: number;
 		address: string;
@@ -8,15 +9,15 @@
 	const carServicesList: CarService[] = [
 		{
 			id: 0,
-			address: 'Brīvības iela 250, Rīga',
+			address: 'Brīvības iela 250A, Rīga',
 			phone: ' (+371) 20441133 ',
-			coordinates: [24.198310039551963, 56.990224093655414],
+			coordinates: [24.1731289, 56.9748427],
 		},
 		{
 			id: 1,
 			address: 'Tvaika iela 3, Rīga',
 			phone: '(+371) 67391995 ',
-			coordinates: [24.198310039551963, 56.990224093655414],
+			coordinates: [24.1159287, 56.9975224],
 		},
 	];
 	const carServiceDialog = ref({
@@ -31,15 +32,23 @@
 </script>
 
 <template>
-	<div id="contacts" style="display: block" class="column q-pa-md q-pa-sm-xl q-col-gutter-xl">
+	<section id="contacts" style="display: block" class="column q-pa-md q-pa-sm-xl q-col-gutter-xl">
 		<h3 v-gsap.whenVisible.from="{ x: '-40%', opacity: 0 }" class="text-center">
 			{{ $t('contacts') }}
 		</h3>
-		<div class="row q-col-gutter-md">
+		<div class="row q-col-gutter-xl">
 			<div class="col-md-8 col-12">
 				<WidgetsInteractiveMap :car-services-list="carServicesList" />
 			</div>
-			<div class="q-gutter-y-md col-md-4 col-12">
+			<div class="q-gutter-y-md column col-md-4 col-12">
+				<q-img
+					v-gsap.whenVisible.from="{ scale: 0.3, opacity: 0 }"
+					v-gsap.parallax.faster
+					fit="contain"
+					:src="MapSVG"
+					alt="contacts"
+					:ratio="1"
+					class="q-mt-md gt-sm" />
 				<q-card
 					v-for="(carService, index) in carServicesList"
 					:key="carService.id"
@@ -61,7 +70,7 @@
 				</q-card>
 			</div>
 		</div>
-	</div>
+	</section>
 	<q-dialog v-model="carServiceDialog.isOpen" position="bottom">
 		<WidgetsCarServiceDetails :car-service="carServiceDialog.details" />
 	</q-dialog>

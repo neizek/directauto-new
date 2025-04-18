@@ -12,8 +12,8 @@
 	const isOpenAppointmentForm = ref(false);
 </script>
 <template>
-	<q-header>
-		<q-toolbar class="bg-black">
+	<q-header class="Header">
+		<q-toolbar>
 			<q-toolbar-title class="row text-h6">
 				<NuxtLink :to="$localePath('/')" style="height: 100%; width: 112px">
 					<q-img :src="Logo" alt="logo" class="q-mr-sm" fit="contain" position="0" />
@@ -111,3 +111,14 @@
 		</q-dialog>
 	</q-header>
 </template>
+
+<style lang="scss" scoped>
+	.Header {
+		margin: 8px;
+		background: rgba(0, 0, 0, 0.38);
+		border-radius: 6px;
+		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+	}
+</style>

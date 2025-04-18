@@ -1,4 +1,5 @@
 <script setup lang="ts">
+	import ProgressSVG from '~/assets/icons/illustrations/team.svg';
 	const itemsList = [
 		{
 			text: 'Проконсультирует Вас во всех вопросах, которые касаются ремонта, обслуживания и технического состояния авто;',
@@ -33,32 +34,44 @@
 			<h4 v-gsap.whenVisible.from="{ x: '-40%', opacity: 0 }" class="text-center">
 				{{ $t('about') }}
 			</h4>
-			<p v-gsap.whenVisible.from="{ opacity: 0 }" class="text-justify">
+			<q-img
+				v-gsap.whenVisible.from="{ scale: 0.3, opacity: 0 }"
+				v-gsap.parallax.faster
+				fit="contain"
+				:src="ProgressSVG"
+				alt="contacts"
+				:ratio="2 / 1"
+				class="q-mt-md" />
+			<UiParagraph>
 				DirectAuto продолжает удачно развиваться, как автосервис который с индивидуальным
 				подходом и высоким чувством ответственности обслуживает юридические и физические
 				лица. Предлагаем Вам обслуживать своё личное авто или автопарк Вашего предприятия у
 				нас, так как наша команда состоит из высоко квалифицированных специалистов.
-			</p>
-			<p v-gsap.whenVisible.from="{ opacity: 0 }" class="text-justify">
+			</UiParagraph>
+			<UiParagraph>
 				Обслуживая свой автомобиль в нашем сервисе, у Вас будет возможность, убедиться в
 				позитивной атмосфере и в профессиональной подготовке наших работников. Сотрудничая с
 				ведущими дилерами запчастей в Прибалтике и Европе, наш автосервис сможет подобрать
 				запчасти соответствующие Вашим финансовым возможностям и желаниям.
-			</p>
+			</UiParagraph>
 		</div>
 		<div class="column col-md-6 col-12">
 			<h4 v-gsap.whenVisible.from="{ x: '-40%', opacity: 0 }" class="text-center">
 				{{ $t('carService') }}
 			</h4>
-			<p v-gsap.whenVisible.from="{ opacity: 0 }">
+			<UiParagraph>
 				Обращаясь в автосервис DirectAuto Вас встретит наш отзывчивый коллектив и Ваш
 				автомобиль примет управляющее лицо, которое:
-			</p>
+			</UiParagraph>
 			<q-list>
 				<q-item
 					v-for="(item, index) in itemsList"
 					:key="index"
-					v-gsap.whenVisible.from="{ scale: 0.3, opacity: 0 }"
+					v-gsap.whenVisible.once.reversible.from="{
+						x: index % 2 ? '-40%' : '40%',
+						scale: 0.3,
+						opacity: 0,
+					}"
 					class="q-mb-sm">
 					<q-item-section avatar>
 						<q-icon :name="item.icon" color="primary" size="32px" />

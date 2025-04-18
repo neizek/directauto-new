@@ -31,9 +31,7 @@
 		const bounds = new mapboxgl.LngLatBounds();
 		props.carServicesList.forEach((carService) => {
 			if (carService.coordinates) {
-				// const marker = new mapboxgl.Marker().setLngLat(carService.coordinates).addTo(map);
 				new mapboxgl.Marker().setLngLat(carService.coordinates).addTo(map);
-				// marker.getElement().addEventListener('click', () => props.openDetails(carwash));
 				bounds.extend(carService.coordinates);
 			}
 		});
@@ -47,7 +45,7 @@
 </script>
 
 <template>
-	<div class="Container">
+	<div v-gsap.whenVisible.from="{ opacity: 0 }" class="Container">
 		<div ref="mapContainer" class="map-container" style="" />
 	</div>
 </template>
@@ -58,7 +56,6 @@
 		max-height: 600px;
 
 		> div {
-			// display: flex;
 			border-radius: 10px;
 			aspect-ratio: 4/3;
 		}
