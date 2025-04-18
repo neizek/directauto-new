@@ -1,5 +1,11 @@
 <template>
-	<p v-gsap.whenVisible.from="{ opacity: 0 }" class="text-justify">
+	<p v-gsap.whenVisible.from="{ opacity: 0 }" class="text-justify text-grey-4">
 		<slot />
 	</p>
 </template>
+
+<style lang="scss" scoped>
+	p {
+		text-indent: 2.5em;
+	}
+</style>

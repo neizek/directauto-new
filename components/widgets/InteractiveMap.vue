@@ -24,6 +24,7 @@
 			style: 'mapbox://styles/mapbox/navigation-night-v1',
 			center: [24.198310039551963, 56.990224093655414],
 			zoom: 9,
+			cooperativeGestures: true,
 		});
 
 		map.addControl(new mapboxgl.FullscreenControl());
@@ -53,11 +54,14 @@
 <style lang="scss" scoped>
 	.Container {
 		width: 100%;
+		height: 100%;
 		max-height: 600px;
 
 		> div {
+			height: inherit;
+			max-height: inherit;
 			border-radius: 10px;
-			aspect-ratio: 4/3;
+			// aspect-ratio: 4/3;
 		}
 	}
 </style>

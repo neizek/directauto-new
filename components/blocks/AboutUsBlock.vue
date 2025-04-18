@@ -35,8 +35,8 @@
 				{{ $t('about') }}
 			</h4>
 			<q-img
-				v-gsap.whenVisible.from="{ scale: 0.3, opacity: 0 }"
-				v-gsap.parallax.faster
+				v-gsap.whenVisible.once.reversible.from="{ scale: 0.3, opacity: 0 }"
+				v-gsap.mobile.parallax.faster
 				fit="contain"
 				:src="ProgressSVG"
 				alt="contacts"
