@@ -54,12 +54,11 @@
 <style lang="scss" scoped>
 	.Container {
 		width: 100%;
-		height: 100%;
-		max-height: 600px;
 
 		> div {
-			height: inherit;
-			max-height: inherit;
+			height: 100%;
+			min-height: 400px;
+			max-height: 600px;
 			border-radius: 10px;
 			// aspect-ratio: 4/3;
 		}

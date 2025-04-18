@@ -10,5 +10,6 @@
 		"oilFiltersChange": "Замена масла и фильтров",
 		"windowReplacement": "Замена авто стекол",
 		"suspensionRepair": "Диагностика и ремонт ходовой части"
-	}
+	},
+	"carService": "Автосервис"
 }
