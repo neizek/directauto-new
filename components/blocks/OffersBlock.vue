@@ -1,37 +1,7 @@
 <script setup lang="ts">
-	import CarIcon from '~/assets/icons/offers/car.svg';
-	import OilIcon from '~/assets/icons/offers/oil.svg';
-	import WindShieldIcon from '~/assets/icons/offers/windshield.svg';
-	import CarStandIcon from '~/assets/icons/offers/carstand.svg';
-	import WheelIcon from '~/assets/icons/offers/wheel.svg';
-	import EngineIcon from '~/assets/icons/offers/engine.svg';
-	import BreakDownIcon from '~/assets/icons/offers/breakdown.svg';
-	import LightsIcon from '~/assets/icons/offers/lights.svg';
-	import ChassisIcon from '~/assets/icons/offers/chassis.svg';
-	import BrakeIcon from '~/assets/icons/offers/break.svg';
-	import GearshiftIcon from '~/assets/icons/offers/gearshift.svg';
-	import ElectronicsIcon from '~/assets/icons/offers/electronics.svg';
-	import PaintIcon from '~/assets/icons/offers/paint.svg';
-	import SnowflakeIcon from '~/assets/icons/offers/snowflake.svg';
+	import { offers } from '~/lib/offers';
 
-	const { t } = useI18n();
-
-	const offers = computed(() => [
-		{ label: t('offer.beforeInspection'), icon: CarIcon },
-		{ label: t('offer.oilFiltersChange'), icon: OilIcon },
-		{ label: t('offer.windowReplacement'), icon: WindShieldIcon },
-		{ label: t('offer.suspensionRepair'), icon: CarStandIcon },
-		{ label: 'Замена колёс на дисках любого размера;', icon: WheelIcon },
-		{ label: 'Диагностика и ремонт двигателя', icon: EngineIcon },
-		{ label: 'Ремонт легковых авто и микроавтобусов', icon: BreakDownIcon },
-		{ label: 'Регулировка освещения', icon: LightsIcon },
-		{ label: 'Развал схождения на 3D стенде (только Brīvības 250)', icon: ChassisIcon },
-		{ label: 'Диагностика тормозной системы на тормозном стенде', icon: BrakeIcon },
-		{ label: 'Диагностика и ремонт коробки передач', icon: GearshiftIcon },
-		{ label: 'Диагностика и ремонт электроприборов (только Tvaika 3)', icon: ElectronicsIcon },
-		{ label: 'Покрасочные работы любой сложности', icon: PaintIcon },
-		{ label: 'Подготовка авто к зимнему/летнему сезону', icon: SnowflakeIcon },
-	]);
+	// const { t } = useI18n();
 </script>
 
 <template>
@@ -39,14 +9,14 @@
 		<!-- <q-intersection class="text-center" tag="h2" transition="slide-right">
 			Услуги
 		</q-intersection> -->
-		<h3 v-gsap.whenVisible.from="{ x: -100, opacity: 0 }" class="text-center">
+		<h3 v-gsap.whenVisible.once.reversible.from="{ x: -100, opacity: 0 }" class="text-center">
 			{{ $t('services') }}
 		</h3>
 		<div class="row q-col-gutter-md">
 			<div
 				v-for="offer in offers"
 				:key="offer.label"
-				v-gsap.whenVisible.from="{ scale: 0.4, opacity: 0 }"
+				v-gsap.whenVisible.once.reversible.from="{ scale: 0.4, opacity: 0 }"
 				class="col-md-3 col-6">
 				<q-item class="q-pa-md" style="border-radius: 16px; background-color: #0e0e0e">
 					<q-item-section avatar>
@@ -56,7 +26,7 @@
 					</q-item-section>
 					<q-item-section>
 						<q-item-label lines="3" class="text-caption">
-							{{ offer.label }}
+							{{ $t(offer.label) }}
 						</q-item-label>
 					</q-item-section>
 				</q-item>

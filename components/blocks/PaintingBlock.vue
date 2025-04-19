@@ -8,7 +8,9 @@
 <template>
 	<div class="row">
 		<div class="q-pa-md q-pa-sm-xl column col-md-5 col-12">
-			<h4 v-gsap.whenVisible.from="{ x: '-40%', opacity: 0 }" class="text-center">
+			<h4
+				v-gsap.whenVisible.once.reversible.from="{ x: '-40%', opacity: 0 }"
+				class="text-center">
 				Автопокраска
 			</h4>
 			<q-tabs
@@ -16,8 +18,8 @@
 				no-caps
 				dense
 				align="justify"
-				active-color="primary"
-				indicator-color="primary">
+				active-color="accent"
+				indicator-color="accent">
 				<q-tab name="desc" icon="description" label="Description" />
 				<q-tab name="tech" icon="handyman" label="Technology" />
 			</q-tabs>
@@ -53,7 +55,7 @@
 				</q-tab-panel>
 			</q-tab-panels>
 		</div>
-		<div v-gsap.whenVisible.from="{ opacity: 0 }" class="col-md-7 col-12">
+		<div v-gsap.whenVisible.once.reversible.from="{ opacity: 0 }" class="col-md-7 col-12">
 			<div
 				class="bg-primary lt-md"
 				style="clip-path: polygon(0% 0%, 90% 60%, 100% 100%, 0% 100%); height: 50px" />

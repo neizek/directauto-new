@@ -16,6 +16,15 @@ export default defineNuxtConfig({
 			mapBoxToken: process.env.MAPBOX_ACCESS_TOKEN,
 		},
 	},
+	router: {
+		options: {
+			scrollBehaviorType: 'smooth',
+		},
+	},
+	anchorscroll: {
+		// If you're using page transitions, specify the correct hook
+		hooks: ['page:transition:finish'],
+	},
 	quasar: {
 		config: {
 			dark: true,
@@ -38,8 +47,12 @@ export default defineNuxtConfig({
 					flat: true,
 				},
 				QInput: {
+					color: 'accent',
 					outlined: true,
-					dense: true,
+				},
+				QSelect: {
+					color: 'accent',
+					outlined: true,
 				},
 			},
 		},

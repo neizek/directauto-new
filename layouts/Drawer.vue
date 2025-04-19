@@ -1,6 +1,21 @@
 <script setup lang="ts">
 	import { links } from '~/lib/links';
 	import { openDrawer } from '~/lib/drawer';
+	import { gsap } from 'gsap/all';
+
+	watch(openDrawer, (val) => {
+		if (val) {
+			gsap.globalTimeline.pause();
+		} else {
+			gsap.globalTimeline.resume();
+		}
+	});
+
+	// const { scrollToAnchor } = useAnchorScroll({
+	// 	scrollOptions: {
+	// 		behavior: 'smooth',
+	// 	},
+	// });
 
 	const { locales, setLocale } = useI18n();
 </script>
@@ -27,13 +42,13 @@
 				:key="link.label"
 				clickable
 				class="rounded-borders"
-				:to="$localePath(link.to)">
+				:to="{ path: '/', hash: link.to }">
 				<q-item-section avatar>
 					<q-icon :name="link.icon" color="white" />
 				</q-item-section>
 				<q-item-section class="text-white">{{ $t(link.label) }}</q-item-section>
 			</q-item>
-			<q-item class="bg-primary rounded-borders" clickable>
+			<q-item class="bg-primary rounded-borders" clickable :to="$localePath('/appointment')">
 				<q-item-section avatar>
 					<q-icon name="add" color="white" />
 				</q-item-section>

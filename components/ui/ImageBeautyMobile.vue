@@ -3,7 +3,7 @@
 		<div
 			v-for="(image, index) in images"
 			:key="index"
-			v-gsap.whenVisible.from="{ opacity: 0, x: 100 }"
+			v-gsap.whenVisible.once.reversible.from="{ opacity: 0, x: 100 }"
 			class="slide q-pa-md">
 			<q-img :src="image" alt="Image" height="100%" width="100%" class="rounded-borders" />
 		</div>

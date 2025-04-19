@@ -31,12 +31,14 @@
 <template>
 	<div id="about" class="q-pa-md q-pa-sm-xl row q-col-gutter-xl">
 		<div class="column col-md-6 col-12">
-			<h4 v-gsap.whenVisible.from="{ x: '-40%', opacity: 0 }" class="text-center">
+			<h4
+				v-gsap.whenVisible.once.reversible.from="{ x: '-40%', opacity: 0 }"
+				class="text-center">
 				{{ $t('about') }}
 			</h4>
 			<q-img
 				v-gsap.whenVisible.once.reversible.from="{ scale: 0.3, opacity: 0 }"
-				v-gsap.mobile.parallax.faster
+				v-gsap.mobile.parallax.faster-2
 				fit="contain"
 				:src="ProgressSVG"
 				alt="contacts"
@@ -56,7 +58,9 @@
 			</UiParagraph>
 		</div>
 		<div class="column col-md-6 col-12">
-			<h4 v-gsap.whenVisible.from="{ x: '-40%', opacity: 0 }" class="text-center">
+			<h4
+				v-gsap.whenVisible.once.reversible.from="{ x: '-40%', opacity: 0 }"
+				class="text-center">
 				{{ $t('carService') }}
 			</h4>
 			<UiParagraph>

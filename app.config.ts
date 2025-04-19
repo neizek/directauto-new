@@ -3,6 +3,7 @@ export default defineAppConfig({
 		brand: {
 			primary: '#b2290d',
 			secondary: '#fe0000',
+			accent: '#039FBE',
 		},
 	},
 });

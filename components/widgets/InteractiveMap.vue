@@ -46,7 +46,7 @@
 </script>
 
 <template>
-	<div v-gsap.whenVisible.from="{ opacity: 0 }" class="Container">
+	<div v-gsap.whenVisible.once.reversible.from="{ opacity: 0 }" class="Container">
 		<div ref="mapContainer" class="map-container" style="" />
 	</div>
 </template>

@@ -8,7 +8,7 @@
 		<div
 			v-for="(image, index) in images"
 			:key="image"
-			v-gsap.whenVisible.from="{ scale: 0.3, opacity: 0 }"
+			v-gsap.whenVisible.once.reversible.from="{ scale: 0.3, opacity: 0 }"
 			class="ImageContainer"
 			:class="{ active: index === activeImg }"
 			@mouseover="activeImg = index">
