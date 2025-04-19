@@ -29,6 +29,20 @@
 							{{ $t(offer.label) }}
 						</q-item-label>
 					</q-item-section>
+					<q-popup-proxy
+						unelevated
+						class="lt-md no-shadow"
+						transition-show="scale"
+						transition-hide="scale">
+						<q-banner>
+							<template #avatar>
+								<q-avatar>
+									<q-img :src="offer.icon" fit="contain" class="q-pa-md" />
+								</q-avatar>
+							</template>
+							{{ $t(offer.label) }}
+						</q-banner>
+					</q-popup-proxy>
 				</q-item>
 			</div>
 		</div>

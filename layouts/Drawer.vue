@@ -11,12 +11,6 @@
 		}
 	});
 
-	// const { scrollToAnchor } = useAnchorScroll({
-	// 	scrollOptions: {
-	// 		behavior: 'smooth',
-	// 	},
-	// });
-
 	const { locales, setLocale } = useI18n();
 </script>
 
@@ -42,7 +36,7 @@
 				:key="link.label"
 				clickable
 				class="rounded-borders"
-				:to="{ path: '/', hash: link.to }">
+				:to="{ path: $localePath('/'), hash: link.to }">
 				<q-item-section avatar>
 					<q-icon :name="link.icon" color="white" />
 				</q-item-section>

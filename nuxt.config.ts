@@ -35,6 +35,7 @@ export default defineNuxtConfig({
 				QBtn: {
 					unelevated: true,
 					noCaps: true,
+					size: 'md',
 				},
 				QBtnToggle: {
 					unelevated: true,

@@ -130,16 +130,12 @@
 			ref="stepper"
 			v-model="step"
 			flat
+			:contracted="!$q.screen.gt.md"
 			alternative-labels
-			class="bg-black"
-			color="accent"
+			active-color="accent"
+			class="bg-transparent"
 			animated>
-			<q-step
-				:name="1"
-				title="Ваши данные"
-				icon="settings"
-				class="q-gutter-y-xl"
-				:done="step > 1">
+			<q-step :name="1" title="Ваши данные" icon="settings" :done="step > 1">
 				<div class="column q-gutter-y-md">
 					<q-input
 						v-model="formData.name.value"
@@ -157,7 +153,12 @@
 						type="tel"
 						:rules="formData.phone.rules" />
 
-					<q-btn color="accent" label="Continue" @click="nextStep" />
+					<q-btn
+						icon="navigate_next"
+						size="lg"
+						color="accent"
+						label="Continue"
+						@click="nextStep" />
 				</div>
 			</q-step>
 
