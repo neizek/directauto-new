@@ -133,7 +133,7 @@
 			:contracted="!$q.screen.gt.md"
 			alternative-labels
 			active-color="accent"
-			class="bg-transparent"
+			class="Stepper bg-transparent"
 			animated>
 			<q-step :name="1" title="Ваши данные" icon="settings" :done="step > 1">
 				<div class="column q-gutter-y-md">
@@ -229,3 +229,9 @@
 		</q-stepper>
 	</q-form>
 </template>
+
+<style>
+	.Stepper .q-stepper__step-inner {
+		padding: 16px 0 0 0;
+	}
+</style>

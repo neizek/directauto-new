@@ -13,5 +13,7 @@
 	},
 	"carService": "Автосервис",
 	"howToFindUs": "Как нас найти",
-	"menu": "Меню"
+	"menu": "Меню",
+	"technology": "Технология",
+	"description": "Описание"
 }

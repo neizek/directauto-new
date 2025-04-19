@@ -10,7 +10,13 @@
 		<q-toolbar>
 			<q-toolbar-title class="row text-h6">
 				<NuxtLink :to="$localePath('/')" style="height: 100%; width: 112px">
-					<q-img :src="Logo" alt="logo" class="q-mr-sm" fit="contain" position="0" />
+					<q-img
+						:src="Logo"
+						alt="logo"
+						class="q-mr-sm"
+						fit="contain"
+						position="0"
+						no-spinner />
 				</NuxtLink>
 			</q-toolbar-title>
 			<q-space />
@@ -30,7 +36,7 @@
 						v-for="locale in locales"
 						:key="locale.code"
 						color="transparent"
-						:text-color="locale.code === $i18n.locale ? 'secondary' : 'white'"
+						:text-color="locale.code === $i18n.locale ? 'accent' : 'white'"
 						:label="locale.code.toUpperCase()"
 						@click="setLocale(locale.code)" />
 				</q-btn-group>

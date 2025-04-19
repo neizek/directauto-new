@@ -72,13 +72,13 @@
 					v-for="(item, index) in itemsList"
 					:key="index"
 					v-gsap.whenVisible.once.reversible.from="{
-						x: index % 2 ? '-40%' : '40%',
+						x: index % 2 ? '-30%' : '30%',
 						scale: 0.3,
 						opacity: 0,
 					}"
 					class="q-mb-sm">
 					<q-item-section avatar>
-						<q-icon :name="item.icon" color="primary" size="32px" />
+						<q-icon :name="item.icon" color="accent" size="32px" />
 					</q-item-section>
 					<q-item-section>{{ item.text }}</q-item-section>
 				</q-item>

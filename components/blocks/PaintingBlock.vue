@@ -20,8 +20,8 @@
 				align="justify"
 				active-color="accent"
 				indicator-color="accent">
-				<q-tab name="desc" icon="description" label="Description" />
-				<q-tab name="tech" icon="handyman" label="Technology" />
+				<q-tab name="desc" icon="description" :label="$t('description')" />
+				<q-tab name="tech" icon="handyman" :label="$t('technology')" />
 			</q-tabs>
 			<q-tab-panels
 				v-model="tab"

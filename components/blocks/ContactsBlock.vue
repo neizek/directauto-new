@@ -1,8 +1,9 @@
 <script setup lang="ts">
 	import MapSVG from '~/assets/icons/illustrations/map.svg';
 	// import { ScrollTrigger } from 'gsap/all';
-	import { gsap } from 'gsap/all';
+	// import { gsap } from 'gsap/all';
 	import { carServicesList } from '~/lib/locations';
+	import { pauseAnimations, resumeAnimations } from '~/lib/animations';
 
 	const carServiceDialog = ref({
 		isOpen: false,
@@ -13,9 +14,9 @@
 		carServiceDialog.value,
 		() => {
 			if (carServiceDialog.value.isOpen) {
-				gsap.globalTimeline.pause();
+				pauseAnimations();
 			} else {
-				gsap.globalTimeline.resume();
+				resumeAnimations();
 			}
 		},
 		{ immediate: true }

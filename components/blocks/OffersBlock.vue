@@ -1,4 +1,5 @@
 <script setup lang="ts">
+	import { pauseAnimations, resumeAnimations } from '~/lib/animations';
 	import { offers } from '~/lib/offers';
 
 	// const { t } = useI18n();
@@ -30,10 +31,11 @@
 						</q-item-label>
 					</q-item-section>
 					<q-popup-proxy
-						unelevated
 						class="lt-md no-shadow"
 						transition-show="scale"
-						transition-hide="scale">
+						transition-hide="scale"
+						@before-show="pauseAnimations"
+						@hide="resumeAnimations">
 						<q-banner>
 							<template #avatar>
 								<q-avatar>
